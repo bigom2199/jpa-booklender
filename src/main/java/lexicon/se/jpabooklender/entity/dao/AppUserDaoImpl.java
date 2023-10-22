@@ -2,6 +2,7 @@ package lexicon.se.jpabooklender.entity.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import lexicon.se.jpabooklender.entity.AppUser;
 import org.springframework.stereotype.Repository;
@@ -29,8 +30,8 @@ public class AppUserDaoImpl implements AppUserDao {
     @Transactional
     @Override
     public AppUser create() {
+       return entityManager.createQuery(AppUser);
 
-        return null;
     }
      @Transactional
     @Override
@@ -42,8 +43,10 @@ public class AppUserDaoImpl implements AppUserDao {
     @Override
     public void delete() {
 
-        AppUser foundAppuser = entityManager.find();
-        entityManager.remove(AppUser);
+        AppUser foundAppuser = entityManager.find(AppUser.class,AppUser);
+        if(foundAppuser!= null)entityManager.remove(foundAppuser);
+
+
 
 
     }

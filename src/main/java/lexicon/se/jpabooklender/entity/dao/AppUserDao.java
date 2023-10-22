@@ -1,5 +1,6 @@
 package lexicon.se.jpabooklender.entity.dao;
 
+import jakarta.persistence.TypedQuery;
 import lexicon.se.jpabooklender.entity.AppUser;
 
 import java.util.Collection;
