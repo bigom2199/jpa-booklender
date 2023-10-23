@@ -27,14 +27,14 @@ public class DetailsDaoImpl implements DetailsDao {
   @Transactional
     @Override
     public Details create() {
-      return   entityManager.createQuery(delete());
+      return   entityManager.persist(details);
 
 
     }
  @Transactional
     @Override
     public Details update() {
-       return entityManager.merge();
+       return entityManager.merge(details);
 
     }
 

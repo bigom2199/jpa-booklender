@@ -30,7 +30,7 @@ public class AppUserDaoImpl implements AppUserDao {
     @Transactional
     @Override
     public AppUser create() {
-       return entityManager.createQuery(AppUser);
+       return entityManager.persist(AppUser);
 
     }
      @Transactional

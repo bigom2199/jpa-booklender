@@ -10,4 +10,5 @@ public interface DetailsDao {
     Details create();
     Details update();
     void delete();
+    void update(Details details);
 }
