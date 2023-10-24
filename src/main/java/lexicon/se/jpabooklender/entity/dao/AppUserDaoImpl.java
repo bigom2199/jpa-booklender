@@ -18,7 +18,7 @@ public class AppUserDaoImpl implements AppUserDao {
     public AppUser findById(int id) {
         AppUser foundAppUser = entityManager.find(AppUser.class,id);
 
-        return Optional.ofNullable(foundAppUser);
+        return foundAppUser;
     }
 
     @Override
@@ -29,21 +29,21 @@ public class AppUserDaoImpl implements AppUserDao {
     }
     @Transactional
     @Override
-    public AppUser create() {
-       return entityManager.persist(AppUser);
-
+    public AppUser create(AppUser appUser) {
+        entityManager.persist(appUser);
+       return appUser;
     }
      @Transactional
     @Override
-    public AppUser update() {
-        return entityManager.merge(AppUser);
+    public AppUser update(AppUser appUser) {
+        return entityManager.merge(appUser);
 
     }
    @Transactional
     @Override
-    public void delete() {
+    public void delete(AppUser appUser) {
 
-        AppUser foundAppuser = entityManager.find(AppUser.class,AppUser);
+        AppUser foundAppuser = entityManager.find(AppUser.class,appUser);
         if(foundAppuser!= null)entityManager.remove(foundAppuser);
 
 

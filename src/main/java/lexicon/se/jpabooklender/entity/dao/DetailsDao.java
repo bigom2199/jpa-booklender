@@ -7,8 +7,8 @@ import java.util.Collection;
 public interface DetailsDao {
     Details findById(int id);
     Collection<Details>findAll();
-    Details create();
-    Details update();
-    void delete();
-    void update(Details details);
+    Details create(Details details);
+
+    void delete(Details details);
+    Details update(Details details);
 }

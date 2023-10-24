@@ -16,7 +16,7 @@ public class DetailsDaoImpl implements DetailsDao {
     @Override
     public Details findById(int id) {
         Details foundDetails = entityManager.find(Details.class,id);
-        return Optional.ofNullable(foundDetails);
+        return foundDetails;
     }
 
     @Override
@@ -26,21 +26,21 @@ public class DetailsDaoImpl implements DetailsDao {
     }
   @Transactional
     @Override
-    public Details create() {
-      return   entityManager.persist(details);
-
+    public Details create(Details details) {
+        entityManager.persist(details);
+  return details;
 
     }
  @Transactional
     @Override
-    public Details update() {
-       return entityManager.merge(details);
-
+    public Details update(Details details) {
+        entityManager.merge(details);
+       return details;
     }
 
     @Override
-    public void delete() {
-        Details foundDetails = entityManager.find(Details.class,id);
+    public void delete(Details details) {
+        Details foundDetails = entityManager.find(Details.class,details);
         if (foundDetails!= null)entityManager.remove(foundDetails);
 
     }
