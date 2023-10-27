@@ -38,7 +38,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void delete(Book book) {
-    if(this.findById(book.getBookId) != null){
+    if(this.findById(book.getBookId()) != null){
         entityManager.remove(book);
     }
     }
