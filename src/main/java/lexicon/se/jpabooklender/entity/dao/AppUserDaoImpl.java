@@ -43,8 +43,9 @@ public class AppUserDaoImpl implements AppUserDao {
     @Override
     public void delete(AppUser appUser) {
 
-        AppUser foundAppuser = entityManager.find(AppUser.class,appUser);
-        if(foundAppuser!= null)entityManager.remove(foundAppuser);
+        if(this.findById(appUser.getAppUserId())!= null)
+            entityManager.remove(appUser);
+
 
 
 

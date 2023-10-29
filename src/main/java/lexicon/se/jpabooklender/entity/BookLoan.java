@@ -32,7 +32,7 @@ public class BookLoan {
 
 
 
-   @OneToOne
+   @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @Column(updatable = false)
     private AppUser borrower;
 

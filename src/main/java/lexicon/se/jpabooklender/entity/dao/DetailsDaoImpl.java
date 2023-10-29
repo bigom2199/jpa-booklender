@@ -40,8 +40,8 @@ public class DetailsDaoImpl implements DetailsDao {
 
     @Override
     public void delete(Details details) {
-        Details foundDetails = entityManager.find(Details.class,details);
-        if (foundDetails!= null)entityManager.remove(foundDetails);
+        if(this.findById(details.getDetailsId()) != null)
+        entityManager.remove(details);
 
     }
 }

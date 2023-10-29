@@ -38,9 +38,9 @@ public class Book  {
    private Set<Author> authors;
 
 
-   public Book(String bookName){
+   public Book(String bookName,String title){
      this.bookName = bookName;
-
+     this.title = title;
    }
 
 }
