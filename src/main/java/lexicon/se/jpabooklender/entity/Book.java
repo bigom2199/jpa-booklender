@@ -42,5 +42,13 @@ public class Book  {
      this.bookName = bookName;
      this.title = title;
    }
+  public void addAuthor(Author author){
+       authors.add(author);
+       author.setWrittenBooks(null);
+  }
+  public void removeAuthor(Author author){
+       authors.remove(author);
+       author.setWrittenBooks(null);
+  }
 
 }
