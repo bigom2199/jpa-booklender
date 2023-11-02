@@ -53,16 +53,16 @@ public class Author {
     }
 
    public void removeBook(Book book){
-        books.remove(book);
+       writtenBooks.remove(book);
         book.setAuthors(null);
    }
-   public void addWrittenBook(WrittenBook writtenBook) {
+   public void addWrittenBook(Book writtenBook) {
        writtenBooks.add(writtenBook);
        writtenBook.setAuthor(this);
 
    }
 
-   public void removeWrittenBook(WrittenBook writtenBook){
+   public void removeWrittenBook(Book writtenBook){
         writtenBooks.remove(writtenBooks);
         writtenBook.setAuthor(null);
    }

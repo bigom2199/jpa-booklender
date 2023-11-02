@@ -19,7 +19,7 @@ public class Book  {
    @Column(updatable = false)
    private  int bookId;
 
-   @ManyToOne
+
    @Column
    private  String isbn;
 
@@ -38,13 +38,9 @@ public class Book  {
    private Set<Author> authors;
 
 
-   public Book(String bookName,String title){
-     this.bookName = bookName;
-     this.title = title;
-   }
   public void addAuthor(Author author){
        authors.add(author);
-       author.setWrittenBooks(null);
+       author.setWrittenBooks(this);
   }
   public void removeAuthor(Author author){
        authors.remove(author);

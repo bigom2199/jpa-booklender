@@ -27,14 +27,14 @@ public class BookLoan {
     private LocalDate dueDate;
     private boolean returned;
 
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-
 
 
    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @Column(updatable = false)
     private AppUser borrower;
+
+    @ManyToOne()
+    @JoinColumn(name = "book_id")
 
     private Book book;
 }

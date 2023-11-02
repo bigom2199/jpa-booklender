@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -42,7 +44,8 @@ public class AppUser {
             joinColumns = @JoinColumn(name = "book_id"),
               inverseJoinColumns=@JoinColumn(name="borrow_id")
      )
-    private AppUser borrow;
+    private Set<Book> books;
+   @OneToOne
     private Book book;
 
 
